@@ -41,7 +41,7 @@ class MyFormValidator {
 	validateFio(fio) {
 		if (!fio) return false;
 		let splitedFio = fio.trim().split(/\s+/);
-		if (splitedFio.length != 3 ||  !splitedFio.every(item => item.length)) return false;
+		if (splitedFio.length != 3 || !splitedFio.every(item => item.length)) return false;
 		return true;
 	}
 	// to get random response
@@ -55,7 +55,9 @@ class MyFormValidator {
 			xhr.overrideMimeType("application/json");
 			xhr.open('POST', url, true);
 			xhr.onreadystatechange = () => {
-				if (xhr.readyState > 3 && xhr.status == 200) resolve(JSON.parse(xhr.responseText));
+				if (xhr.readyState > 3 ) {
+					resolve(JSON.parse(xhr.responseText));
+				}
 			}
 			xhr.onerror = () => reject();
 			xhr.send();
@@ -96,6 +98,7 @@ class MyFormValidator {
 	async submit(e) {
 		e.preventDefault();
 		if (!this.isSubmited && this.validate().isValid) {
+			this.resultContainer.innerHTML = '';
 			this.isSubmited = true;
 			this.submitBtn.classList.add('my-form__submit-btn--disabled');
 			let response;
@@ -120,6 +123,7 @@ class MyFormValidator {
 				this.resultContainer.innerHTML = response.reason;
 			}
 			this.submitBtn.classList.remove('my-form__submit-btn--disabled');
+			this.isSubmited = false;
 		}
 	}
 }
