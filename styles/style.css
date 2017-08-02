@@ -1,0 +1,125 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	font-family: Monaco, Arial, Helvetica, sans-serif;
+}
+
+.content-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+.my-form {
+	width: 400px;
+	min-height: 360px;
+	padding: 15px 50px 25px 50px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+	background: #fff;
+}
+
+.my-form__field {
+	display: block;
+	width: 100%;
+	height: 28px;
+	padding: 0 10px;
+	border: 1px solid #eee;
+	outline: none;
+	border-radius: 5px;
+}
+.my-form__control-group {
+	margin-bottom: 15px;
+}
+.my-form__field:focus {
+	border: 1px solid cornflowerblue;
+}
+.my-form__field.error {
+	border: 1px solid red;
+}
+
+.my-form__label {
+	display: block;
+	margin-bottom: 10px;
+}
+.my-form__title {
+	font-size: 24px;
+	font-weight: 500;
+	text-align: center;
+}
+
+.my-form__submit-btn {
+	display: block;
+	padding: 6px 20px;
+	font-size: 16px;
+	color: #fff;
+	background: cornflowerblue;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.my-form__submit-btn--disabled {
+	opacity: 0.4;
+}
+.result-block {
+	width: 400px;
+	padding: 35px 50px 25px 50px;
+	min-height: 360px;
+	margin-left: 45px;
+	box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+
+}
+.result-block__title {
+	margin: 0;
+	margin-bottom: 40px;
+	font-size: 24px;
+	font-weight: 500;
+	text-align: center;
+}
+
+#resultContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
+#resultContainer.error {
+	border: 1px dashed red;
+}
+#resultContainer.success {
+	border: 1px dashed lightgreen;
+}
+
+@keyframes loaderAnimation {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+		border-radius: 50%;
+		background: lightgreen;
+		
+	}
+	50% {
+		border-radius: 0;
+		background: red;
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+		border-radius: 50%;
+		background: lightgreen;
+	}
+}
+
+#resultContainer.progress::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30px;
+	height: 30px;
+	background: lightgreen;
+	animation: loaderAnimation 1.2s infinite ease-in-out;
+}
