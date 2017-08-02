@@ -1,9 +1,8 @@
-# --- Attention ---
-## Tested in last versions of safari, firefox and chrome
-### Not works in chrome because of web-security policy (launch chrome with flag or use browser extension)
+# Node js school test 
 
+Проверено в последних версиях firefox, safari, chrome.
 
-
+Ajax запрос не работает в браузере chrome без флагов --disable-web-security --user-data-dir. (При запросе к локальным файлам chrome выбрасывает ошибку cors).
 
 
 
